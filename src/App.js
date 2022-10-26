@@ -17,7 +17,7 @@ function App() {
     const fetchPost = async () => {
       try {
         const res = await axios(
-          `https://api.thecatapi.com/v1/images/search?limit=${21}&breed_ids=beng&api_key=live_xuxUWz06FBdtUkfSsCXyIueFAIuxN4Nsv6huKVPlpZ3fDCyvCermW950ldUfhjMg`
+          `https://api.thecatapi.com/v1/images/search?limit=${21}&breed_ids=${selectedBreed}&api_key=live_xuxUWz06FBdtUkfSsCXyIueFAIuxN4Nsv6huKVPlpZ3fDCyvCermW950ldUfhjMg`
         );
         setData(res.data);
       } catch (e) {
@@ -25,7 +25,7 @@ function App() {
       }
     };
     fetchPost();
-  }, []);
+  }, [selectedBreed]);
 
   useEffect(() => {
     const fetchBreeds = async () => {
@@ -67,6 +67,8 @@ function App() {
     console.log(selectedBreed);
   };
 
+  console.log(selectedBreed);
+
   if (error) {
     return (
       <div>
@@ -84,7 +86,7 @@ function App() {
         singleSelect
         options={breeds}
         displayValue="name"
-        onSelect={onSelect}
+        onSelect={(e) => setSelectedBreed(e[0].id)}
         closeOnSelect={true}
         ref={selectBreed}
       />
