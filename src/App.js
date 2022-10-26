@@ -11,6 +11,7 @@ function App() {
   const [scrollPosition, setSrollPosition] = useState(0);
   const [showToTop, setshowToTop] = useState("toTopHidden");
   const [breeds, setBreeds] = useState([]);
+  const [selectedBreed, setSelectedBreed] = useState("");
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -60,7 +61,11 @@ function App() {
     }
   };
 
-  const selectedBreed = useRef();
+  const selectBreed = useRef(null);
+  const onSelect = () => {
+    setSelectedBreed(selectBreed.current.getSelectedItems()[0].id);
+    console.log(selectedBreed);
+  };
 
   if (error) {
     return (
@@ -79,9 +84,9 @@ function App() {
         singleSelect
         options={breeds}
         displayValue="name"
-        onSelect={() => {
-          selectedBreed.current.getSelectedItems();
-        }}
+        onSelect={onSelect}
+        closeOnSelect={true}
+        ref={selectBreed}
       />
       <div className="cardContainer">
         {data.map((cats, i) => (
