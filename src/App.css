@@ -1,3 +1,91 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+* {
+  background-color: darkgrey;
+}
+
+.cardContainer {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
 @media screen and (min-width: 1025px) {
   .cardContainer {
     display: grid;
@@ -19,16 +107,33 @@
   }
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.secondaryHeader {
+  display: flex;
+  justify-content: center;
+}
+
 .cardBox {
   width: 200px;
   height: 200px;
+  margin: 5px;
+}
+.cardBox:hover {
+  scale: 1.1;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
 }
 
 .card {
   width: 100%;
   height: 100%;
-  margin: 2px;
-  border: 1px solid black;
+  border: 3px solid black;
+  border-radius: 40%;
 }
 
 .toTopHidden {
@@ -48,4 +153,27 @@
   cursor: pointer;
   text-align: center;
   line-height: 30px;
+}
+
+.loadingWrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+}
+
+.optionListContainer {
+  width: 184px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
 }

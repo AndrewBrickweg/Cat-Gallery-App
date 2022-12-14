@@ -1,18 +1,13 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import arrow from "../src/up-arrow.png";
 
 const ToTop = ({ showToTop, scrollUp }) => {
   return (
     <div className={showToTop} onClick={scrollUp}>
       <button className="toTop">
-        {/* <FontAwesomeIcon icon="fa-sharp fa-solid fa-arrow-up" /> */}
+        <img src={arrow} />
       </button>
     </div>
   );
 };
 
 export default ToTop;
-
-// define hoisting, Initialization/declarations defintion
-// debounce custom hook technique
-// add meaningful component search
-// fix css
